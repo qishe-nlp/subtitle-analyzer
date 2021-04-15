@@ -44,7 +44,8 @@ class PhraseAnalyzer:
       line_words (list): vocabularies in one line of subtitle
       google (bool): whether using google translation
     """
-
+    
+    print(line_phrases)
     noun_phrases = []
     for p in line_phrases["noun_phrases"]:
       result = self._lookup_phrase(p)

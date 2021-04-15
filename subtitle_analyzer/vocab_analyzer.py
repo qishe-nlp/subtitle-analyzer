@@ -36,6 +36,7 @@ class VocabAnalyzer:
       line_words (list): vocabularies in one line of subtitle
       google (bool): whether using google translation
     """
+    print(line_words)
     _words = []
     for e in line_words:
       dict_searched = self._dictapi.search(e['word'], e['pos'], google)
