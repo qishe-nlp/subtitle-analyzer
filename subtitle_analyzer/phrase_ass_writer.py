@@ -1,21 +1,41 @@
 import pysubs2
 
 
-def underline(w):
+def _underline(w):
+  """Add underline for phrases with ass style
+
+  Args:
+    w (tuple): phrase information, first element is phrase, second is its marker, e.g, ``noun_phrases``, ``prep_phrases``, ``verbs`` or ``plain``
+  """
   if w[1] == "noun_phrases" or w[1] == "prep_phrases":
     return "{\\u1}" + w[0] + "{\\u0}"
   else:
     return w[0]
 
 class PhraseASSWriter:
-  def __init__(self, srtfile, name):
-    self.dstfile = name + '.ass'
-    self.subs = pysubs2.load(srtfile) 
-    self.subs.info['PlayResX'] = 640
-    self.subs.info['PlayResY'] = 360
+  """Write phrase information with time stamp into ass file
+  """
 
-  def create_bullets(self, content, animation):
-    default_style = self.subs.styles["Default"]
+  def __init__(self, srtfile):
+    """Initialize subtitle object from srtfile
+
+    Args:
+      srtfile (str): subtitle filename
+    """
+
+    self._subs = pysubs2.load(srtfile) 
+    self._subs.info['PlayResX'] = 640
+    self._subs.info['PlayResY'] = 360
+
+  def _create_bullets(self, content, animation):
+    """Add phrase information into subtitle object
+
+    Args:
+      content (list): phrase information with time stamp
+      animation (bool): whether using animation in ass
+    """
+
+    default_style = self._subs.styles["Default"]
     default_style.fontsize = 16
     default_style.shadow = 0.5  # shadow: 0.5 px
     default_style.outline = 0.5 # font outline: 0.5 px
@@ -25,7 +45,7 @@ class PhraseASSWriter:
     default_style.marginr = 10
     default_style.marginv = 10
 
-    phrase_style = self.subs.styles["Default"].copy()
+    phrase_style = self._subs.styles["Default"].copy()
     phrase_style.italic = 0 
     phrase_style.bold = 0
     phrase_style.alignment = 4
@@ -39,11 +59,11 @@ class PhraseASSWriter:
     phrase_style.marginr = 10
     phrase_style.marginv = 10
     phrase_style.primarycolor = pysubs2.Color(255, 255, 255, 0) # font color: white, no transparent
-    self.subs.styles["Phrase"] = phrase_style
+    self._subs.styles["Phrase"] = phrase_style
 
 
 
-    verb_style = self.subs.styles["Default"].copy()
+    verb_style = self._subs.styles["Default"].copy()
     verb_style.italic = 0 
     verb_style.bold = 0
     verb_style.alignment = 7
@@ -57,7 +77,7 @@ class PhraseASSWriter:
     verb_style.marginr = 10
     verb_style.marginv = 24
     verb_style.primarycolor = pysubs2.Color(255, 255, 255, 0) # font color: white, no transparent
-    self.subs.styles["Verb"] = verb_style
+    self._subs.styles["Verb"] = verb_style
 
 
     marker_colors = {
@@ -67,7 +87,7 @@ class PhraseASSWriter:
       "prep_phrases": "{\\c&H93F8E9&}",
     }
 
-    self.subs.events = []
+    self._subs.events = []
     for bullet in content:
       phrases = bullet["prep_phrases"] + bullet["noun_phrases"]
       _phrases = "\\N".join(["\\h\\h\\h\\h".join([marker_colors["noun_phrases"]+w["original"], marker_colors["plain"]+w["translated"]]) for w in phrases])
@@ -84,13 +104,21 @@ class PhraseASSWriter:
         verb_event = pysubs2.SSAEvent(start=start, end=end, text=_verbs, style="Verb")
 
 
-      _markers = " ".join([marker_colors[w[1]]+underline(w) for w in bullet["markers"]])
+      _markers = " ".join([marker_colors[w[1]]+_underline(w) for w in bullet["markers"]])
       event = pysubs2.SSAEvent(start=start, end=end, text=_markers, style="Default")
-      self.subs.append(event)
-      self.subs.append(phrase_event)
-      self.subs.append(verb_event)
+      self._subs.append(event)
+      self._subs.append(phrase_event)
+      self._subs.append(verb_event)
 
 
-  def write(self, content, options):
-    self.create_bullets(content, options["animation"])
-    self.subs.save(self.dstfile)
+  def write(self, content, assfile, options):
+    """Write phrase information into ass file
+
+    Args:
+      content (list): phrase information with time stamp
+      assfile (str): ass filename
+      options (dict): argument for ass format
+    """
+
+    self._create_bullets(content, options["animation"])
+    self._subs.save(assfile)
