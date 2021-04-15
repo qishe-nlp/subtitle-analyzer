@@ -19,6 +19,8 @@ sencore = "^0.1.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+Sphinx = "^3.5.4"
+sphinx-rtd-theme = "^0.5.2"
 
 [tool.poetry.scripts]
 sta_vocab = "subtitle_analyzer.entry:subtitle_vocab"
