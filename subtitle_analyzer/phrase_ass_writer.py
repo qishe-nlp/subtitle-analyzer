@@ -36,7 +36,7 @@ class PhraseASSWriter:
     """
 
     default_style = self._subs.styles["Default"]
-    default_style.fontsize = 16
+    default_style.fontsize = 26
     default_style.shadow = 0.5  # shadow: 0.5 px
     default_style.outline = 0.5 # font outline: 0.5 px
     default_style.italic = -1 
@@ -49,7 +49,7 @@ class PhraseASSWriter:
     phrase_style.italic = 0 
     phrase_style.bold = 0
     phrase_style.alignment = 4
-    phrase_style.fontsize = 16
+    phrase_style.fontsize = 26
     phrase_style.borderphrase_style = 1
     phrase_style.shadow = 0.5  # shadow: 0.5 px
     phrase_style.backcolor = pysubs2.Color(0, 0, 0, 100) # shadow color: black with (255-100)/255 transparent
