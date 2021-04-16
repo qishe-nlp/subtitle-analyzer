@@ -67,7 +67,7 @@ class PhraseASSWriter:
     verb_style.italic = 0 
     verb_style.bold = 0
     verb_style.alignment = 7
-    verb_style.fontsize = 16
+    verb_style.fontsize = 26
     verb_style.borderverb_style = 1
     verb_style.shadow = 0.5  # shadow: 0.5 px
     verb_style.backcolor = pysubs2.Color(0, 0, 0, 100) # shadow color: black with (255-100)/255 transparent
