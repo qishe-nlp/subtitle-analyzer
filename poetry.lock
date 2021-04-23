@@ -274,7 +274,7 @@ pyparsing = ">=2.0.2"
 
 [[package]]
 name = "pathy"
-version = "0.4.0"
+version = "0.5.0"
 description = "pathlib.Path subclasses for local and cloud bucket storage"
 category = "main"
 optional = false
@@ -285,8 +285,9 @@ smart-open = ">=2.2.0,<4.0.0"
 typer = ">=0.3.0,<1.0.0"
 
 [package.extras]
-all = ["google-cloud-storage (>=1.26.0,<2.0.0)"]
+all = ["google-cloud-storage (>=1.26.0,<2.0.0)", "pytest", "pytest-coverage", "mock", "typer-cli"]
 gcs = ["google-cloud-storage (>=1.26.0,<2.0.0)"]
+test = ["pytest", "pytest-coverage", "mock", "typer-cli"]
 
 [[package]]
 name = "phrase-detective"
@@ -447,7 +448,7 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "sencore"
-version = "0.1.9"
+version = "0.1.10"
 description = "sentence nlp parser for multilingua"
 category = "main"
 optional = false
@@ -539,7 +540,7 @@ transformers = ["spacy-transformers (>=1.0.1,<1.1.0)"]
 
 [[package]]
 name = "spacy-legacy"
-version = "3.0.3"
+version = "3.0.4"
 description = "Legacy registered functions for spaCy backwards compatibility"
 category = "main"
 optional = false
@@ -1034,8 +1035,8 @@ packaging = [
     {file = "packaging-20.9.tar.gz", hash = "sha256:5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"},
 ]
 pathy = [
-    {file = "pathy-0.4.0-py3-none-any.whl", hash = "sha256:2f254d2241916614323e8a3c5e3dccf22484d9a3de9b385271bb3b629dcfab7b"},
-    {file = "pathy-0.4.0.tar.gz", hash = "sha256:1ac473a6f61e36f0c4b70303b3e2e63c9bfb3d9707aedd8daeffcaeb0b645734"},
+    {file = "pathy-0.5.0-py3-none-any.whl", hash = "sha256:56231e29822457b3c471bfb5613a5e569236be2e3b01ad3bd89349f47cac63c4"},
+    {file = "pathy-0.5.0.tar.gz", hash = "sha256:095df57825dac0ae823de35b6d4b831ad100a38540f456fb691fd0db67a6cf91"},
 ]
 phrase-detective = [
     {file = "phrase-detective-0.1.9.tar.gz", hash = "sha256:9338d7cbecaacf2fd78637c8a688693d43cc59b85364ea2cbf8c302b7b6b6e4d"},
@@ -1187,8 +1188,8 @@ rfc3986 = [
     {file = "rfc3986-1.4.0.tar.gz", hash = "sha256:112398da31a3344dc25dbf477d8df6cb34f9278a94fee2625d89e4514be8bb9d"},
 ]
 sencore = [
-    {file = "sencore-0.1.9-py3-none-any.whl", hash = "sha256:9c6fa32ab7ea9d4c1b841dc1935b6ebcabde404441f110675e3af4d4540ad763"},
-    {file = "sencore-0.1.9.tar.gz", hash = "sha256:a3e4492fa3d92ff110123b0bfddb2eb03ce1b3feb72ee3039e3e5777774efdf2"},
+    {file = "sencore-0.1.10-py3-none-any.whl", hash = "sha256:0b11a048494405ed333fb9fbe6089cd81e0b977fbc04e2d0ed6f38c414694bdc"},
+    {file = "sencore-0.1.10.tar.gz", hash = "sha256:1c5d6e8461fb35f6553547e39fa0add5a2c171d587b620a28c758d09234daa4f"},
 ]
 smart-open = [
     {file = "smart_open-3.0.0.tar.gz", hash = "sha256:7f4e85b71df5a3618f5447d0b417b7a3576308c839690a24a70338b8993684c3"},
@@ -1217,8 +1218,8 @@ spacy = [
     {file = "spacy-3.0.5.tar.gz", hash = "sha256:9f7a09fbad53aac2a3cb7696a902de62b94575a15d249dd5e26a98049328060e"},
 ]
 spacy-legacy = [
-    {file = "spacy-legacy-3.0.3.tar.gz", hash = "sha256:72625c3947527655a8d69244ba8b784ea8105a9696cc557539ab11e9b8acb4f9"},
-    {file = "spacy_legacy-3.0.3-py2.py3-none-any.whl", hash = "sha256:8bcbb3d71181f2bf402544f17a69e52a5b540508263c610523bca63ec4066528"},
+    {file = "spacy-legacy-3.0.4.tar.gz", hash = "sha256:37d5de173ec5573ce32a3c2d20d526f924fafe38341604f5d6b0b385b1b86ac0"},
+    {file = "spacy_legacy-3.0.4-py2.py3-none-any.whl", hash = "sha256:48ff594784d1bae4f6dfcd7b9306828c14c0edb1e1677fa4e8e90ad4e1dd200c"},
 ]
 sphinx = [
     {file = "Sphinx-3.5.4-py3-none-any.whl", hash = "sha256:2320d4e994a191f4b4be27da514e46b3d6b420f2ff895d064f52415d342461e8"},
