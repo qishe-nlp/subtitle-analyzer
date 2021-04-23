@@ -448,7 +448,7 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "sencore"
-version = "0.1.10"
+version = "0.1.11"
 description = "sentence nlp parser for multilingua"
 category = "main"
 optional = false
@@ -1188,8 +1188,8 @@ rfc3986 = [
     {file = "rfc3986-1.4.0.tar.gz", hash = "sha256:112398da31a3344dc25dbf477d8df6cb34f9278a94fee2625d89e4514be8bb9d"},
 ]
 sencore = [
-    {file = "sencore-0.1.10-py3-none-any.whl", hash = "sha256:0b11a048494405ed333fb9fbe6089cd81e0b977fbc04e2d0ed6f38c414694bdc"},
-    {file = "sencore-0.1.10.tar.gz", hash = "sha256:1c5d6e8461fb35f6553547e39fa0add5a2c171d587b620a28c758d09234daa4f"},
+    {file = "sencore-0.1.11-py3-none-any.whl", hash = "sha256:82153ee8427d72c98cdbe73ae9bcf264d624d11ba9177a0f69222387971e7595"},
+    {file = "sencore-0.1.11.tar.gz", hash = "sha256:0e4719a279a31783c1e639f54cbfa55667df9b33052fac2153e1891fcdc9c1a7"},
 ]
 smart-open = [
     {file = "smart_open-3.0.0.tar.gz", hash = "sha256:7f4e85b71df5a3618f5447d0b417b7a3576308c839690a24a70338b8993684c3"},

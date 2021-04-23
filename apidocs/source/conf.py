@@ -22,7 +22,7 @@ copyright = '2021, Phoenix Grey'
 author = 'Phoenix Grey'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.5'
+release = '0.1.6'
 
 
 # -- General configuration ---------------------------------------------------
