@@ -291,7 +291,7 @@ test = ["pytest", "pytest-coverage", "mock", "typer-cli"]
 
 [[package]]
 name = "phrase-detective"
-version = "0.1.10"
+version = "0.1.11"
 description = "Phrase recognizer component for spacy pipeline"
 category = "main"
 optional = false
@@ -448,7 +448,7 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "sencore"
-version = "0.1.12"
+version = "0.1.13"
 description = "sentence nlp parser for multilingua"
 category = "main"
 optional = false
@@ -1039,8 +1039,8 @@ pathy = [
     {file = "pathy-0.5.0.tar.gz", hash = "sha256:095df57825dac0ae823de35b6d4b831ad100a38540f456fb691fd0db67a6cf91"},
 ]
 phrase-detective = [
-    {file = "phrase-detective-0.1.10.tar.gz", hash = "sha256:dde12b4f0eb27a3bc7a2d8ecd5629bee2daccc69b322bcd3e82414c32c695fc0"},
-    {file = "phrase_detective-0.1.10-py3-none-any.whl", hash = "sha256:a71a10b7325b9fe05f4a55fef9dcd23dea96c05f78c6bf86a2440c1e6a20f095"},
+    {file = "phrase-detective-0.1.11.tar.gz", hash = "sha256:5f1f069bb6dead5c37ae8cb6a81639488ef9bc00c5ec51461121b03e26d4ce2a"},
+    {file = "phrase_detective-0.1.11-py3-none-any.whl", hash = "sha256:321086a9c8e5dbd83ba4ef2dc42bcaaaaf0df2324d4d241183b86e8c590b0179"},
 ]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
@@ -1188,8 +1188,8 @@ rfc3986 = [
     {file = "rfc3986-1.4.0.tar.gz", hash = "sha256:112398da31a3344dc25dbf477d8df6cb34f9278a94fee2625d89e4514be8bb9d"},
 ]
 sencore = [
-    {file = "sencore-0.1.12-py3-none-any.whl", hash = "sha256:09eb605c4afdcaa2f09a066ccedb674545592ec98be827b1fab9aecca12c4076"},
-    {file = "sencore-0.1.12.tar.gz", hash = "sha256:442a5f2d2f6bb609913a0f87b90eff5c32d6de2515bcbcec6ee1ff1238923ed3"},
+    {file = "sencore-0.1.13-py3-none-any.whl", hash = "sha256:ae88c3bf1d3be0fe526e3615a9f284f568101f92a135288aa27c51e0272ddd45"},
+    {file = "sencore-0.1.13.tar.gz", hash = "sha256:0aaccc6c3bf43797b878853b80b620297e0e596a8de4e83b4d7ea4a8e499a668"},
 ]
 smart-open = [
     {file = "smart_open-3.0.0.tar.gz", hash = "sha256:7f4e85b71df5a3618f5447d0b417b7a3576308c839690a24a70338b8993684c3"},
