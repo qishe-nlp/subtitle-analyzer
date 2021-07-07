@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "subtitle-analyzer"
-version = "0.1.8"
+version = "0.1.9"
 description = ""
 authors = ["Phoenix Grey <phoenix.grey0108@gmail.com>"]
 repository = "https://github.com/qishe-nlp/subtitle-analyzer"
@@ -25,6 +25,9 @@ sphinx-rtd-theme = "^0.5.2"
 [tool.poetry.scripts]
 sta_vocab = "subtitle_analyzer.entry:subtitle_vocab"
 sta_phrase = "subtitle_analyzer.entry:subtitle_phrase"
+
+tbr_phrase = "subtitle_analyzer.tbr:subtitle_phrase"
+sta_reviewed_phrase = "subtitle_analyzer.tbr: gen_phrase_ass"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -1,5 +1,6 @@
 from sencore import PhraseParser
 from x2cdict import PhraseDict, VocabDict
+from .lib import make_markers
 
 
 class PhraseAnalyzer:
@@ -16,6 +17,38 @@ class PhraseAnalyzer:
     self._phrase_parser = PhraseParser(lang)
     self._phrase_dictapi = PhraseDict(lang)
     self._vocab_dictapi = VocabDict(lang)
+
+  def _tbr_phrases(self, sentences):
+    """Parse sentences with timestamp into phrases for being reviewed
+
+    Args:
+      sentences (list): sentences with timestamp information
+    """
+
+    _phrases = []
+
+    for e in sentences:
+      _line_phrases = self._phrase_parser.digest(e["text"])
+      del _line_phrases["markers"]
+      _line_phrases["sentence"] = e["text"]
+      _line_phrases["start"] = e["start"]
+      _line_phrases["end"] = e["end"]
+      _phrases.append(_line_phrases)
+
+    return _phrases
+ 
+  def _tbr_line_phrases(self, reviewed, google=False):
+    _phrases = []
+
+    for e in reviewed:
+      markers = make_markers(e)
+      _phrases_with_meaning = self._look_up(e, google)
+      _phrases_with_meaning["start"] = e["start"]
+      _phrases_with_meaning["end"] = e["end"]
+      _phrases_with_meaning["markers"] = markers
+      _phrases.append(_phrases_with_meaning)
+
+    return _phrases
 
   def get_line_phrases(self, sentences, google=False):
     """Parse sentences with timestamp into phrases and look up dictionary for explanation
@@ -45,7 +78,6 @@ class PhraseAnalyzer:
       google (bool): whether using google translation
     """
     
-    print(line_phrases)
     noun_phrases = []
     for p in line_phrases["noun_phrases"]:
       result = self._lookup_phrase(p)
