@@ -39,14 +39,12 @@ def extend_ranges(ranges, maxlen):
 def make_markers(line_phrases):
   vs = [v["text"] for v in line_phrases["verbs"]]
   nps = line_phrases["noun_phrases"]
-  pps = line_phrases["prep_phrases"]
   sentence = line_phrases["sentence"]
 
   verbs_ranges = find_pos(sentence, vs, "verbs")
   noun_phrases_ranges = find_pos(sentence, nps, "noun_phrases")
-  prep_phrases_ranges = find_pos(sentence, pps, "prep_phrases")
 
-  all_ranges = noun_phrases_ranges+prep_phrases_ranges+verbs_ranges
+  all_ranges = noun_phrases_ranges+verbs_ranges
   print(all_ranges)
   doc_mark = extend_ranges(all_ranges, len(sentence))
   markers = [(sentence[d[0]: d[1]], d[2]) for d in doc_mark]  

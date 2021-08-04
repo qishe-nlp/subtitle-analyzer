@@ -83,11 +83,6 @@ class PhraseAnalyzer:
       result = self._lookup_phrase(p)
       if result != None:
         noun_phrases.append(result)
-    prep_phrases = []
-    for p in line_phrases["prep_phrases"]:
-      result = self._lookup_phrase(p)
-      if result != None:
-        prep_phrases.append(result)
     verbs = []
     for p in line_phrases["verbs"]:
       result = self._lookup_verb_dict(p, google)
@@ -96,7 +91,6 @@ class PhraseAnalyzer:
 
     return {
       "noun_phrases": noun_phrases,
-      "prep_phrases": prep_phrases,
       "verbs": verbs,
     }
 

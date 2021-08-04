@@ -5,9 +5,9 @@ def _underline(w):
   """Add underline for phrases with ass style
 
   Args:
-    w (tuple): phrase information, first element is phrase, second is its marker, e.g, ``noun_phrases``, ``prep_phrases``, ``verbs`` or ``plain``
+    w (tuple): phrase information, first element is phrase, second is its marker, e.g, ``noun_phrases``, ``verbs`` or ``plain``
   """
-  if w[1] == "noun_phrases" or w[1] == "prep_phrases":
+  if w[1] == "noun_phrases":
     return "{\\u1}" + w[0] + "{\\u0}"
   else:
     return w[0]
@@ -84,12 +84,11 @@ class PhraseASSWriter:
       "plain": "{\\c&HFFFFFF&}",
       "verbs": "{\\c&H7C94FF&}",
       "noun_phrases": "{\\c&H93F8E9&}",
-      "prep_phrases": "{\\c&H93F8E9&}",
     }
 
     self._subs.events = []
     for bullet in content:
-      phrases = bullet["prep_phrases"] + bullet["noun_phrases"]
+      phrases = bullet["noun_phrases"]
       _phrases = "\\N".join(["\\h\\h\\h\\h".join([marker_colors["noun_phrases"]+w["original"], marker_colors["plain"]+w["translated"]]) for w in phrases])
       _verbs = "\\N".join(["\\h\\h\\h\\h".join([marker_colors["verbs"]+w["text"], marker_colors["plain"]+"("+w["lemma"]+")", marker_colors["plain"]+w["meaning"]]) for w in bullet["verbs"]])
 

@@ -11,11 +11,11 @@ keywords = ["vocabulary", "phrases", "subtitle", "nlp"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-subtitlecore = "^0.1.9"
 click = "^7.1.2"
-x2cdict = "^0.1.40"
 pysubs2 = "^1.1.0"
-sencore = "^0.1.8"
+subtitlecore = "^0.1.11"
+sencore = "^0.1.28"
+x2cdict = "^0.1.42"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
