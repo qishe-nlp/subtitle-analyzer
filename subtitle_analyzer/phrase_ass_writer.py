@@ -16,7 +16,7 @@ class PhraseASSWriter:
   """Write phrase information with time stamp into ass file
   """
 
-  def __init__(self, srtfile):
+  def __init__(self, srtfile, cn_srtfile=None):
     """Initialize subtitle object from srtfile
 
     Args:
@@ -26,6 +26,9 @@ class PhraseASSWriter:
     self._subs = pysubs2.load(srtfile) 
     self._subs.info['PlayResX'] = 640
     self._subs.info['PlayResY'] = 360
+    self._cn_subs = None
+    if cn_srtfile:
+      self._cn_subs = pysubs2.load(cn_srtfile)
 
   def _create_bullets(self, content, animation):
     """Add phrase information into subtitle object
@@ -36,20 +39,20 @@ class PhraseASSWriter:
     """
 
     default_style = self._subs.styles["Default"]
-    default_style.fontsize = 26
+    default_style.fontsize = 20
     default_style.shadow = 0.5  # shadow: 0.5 px
     default_style.outline = 0.5 # font outline: 0.5 px
     default_style.italic = -1 
     default_style.bold = -1 
     default_style.marginl = 10
     default_style.marginr = 10
-    default_style.marginv = 10
+    default_style.marginv = 30 if self._cn_subs else 10
 
     phrase_style = self._subs.styles["Default"].copy()
     phrase_style.italic = 0 
     phrase_style.bold = 0
     phrase_style.alignment = 4
-    phrase_style.fontsize = 26
+    phrase_style.fontsize = 24
     phrase_style.borderphrase_style = 1
     phrase_style.shadow = 0.5  # shadow: 0.5 px
     phrase_style.backcolor = pysubs2.Color(0, 0, 0, 100) # shadow color: black with (255-100)/255 transparent
@@ -67,7 +70,7 @@ class PhraseASSWriter:
     verb_style.italic = 0 
     verb_style.bold = 0
     verb_style.alignment = 7
-    verb_style.fontsize = 26
+    verb_style.fontsize = 24
     verb_style.borderverb_style = 1
     verb_style.shadow = 0.5  # shadow: 0.5 px
     verb_style.backcolor = pysubs2.Color(0, 0, 0, 100) # shadow color: black with (255-100)/255 transparent
@@ -78,6 +81,17 @@ class PhraseASSWriter:
     verb_style.marginv = 24
     verb_style.primarycolor = pysubs2.Color(255, 255, 255, 0) # font color: white, no transparent
     self._subs.styles["Verb"] = verb_style
+
+    cn_default_style = self._subs.styles["Default"].copy()
+    cn_default_style.fontsize = 20
+    cn_default_style.shadow = 0.5  # shadow: 0.5 px
+    cn_default_style.outline = 0.5 # font outline: 0.5 px
+    cn_default_style.italic = -1 
+    cn_default_style.bold = -1 
+    cn_default_style.marginl = 10
+    cn_default_style.marginr = 10
+    cn_default_style.marginv = 3
+    self._subs.styles["CN"] = cn_default_style
 
 
     marker_colors = {
@@ -108,6 +122,11 @@ class PhraseASSWriter:
       self._subs.append(event)
       self._subs.append(phrase_event)
       self._subs.append(verb_event)
+    
+    if self._cn_subs:
+      for e in self._cn_subs:
+        e.style = "CN"
+        self._subs.append(e)
 
 
   def write(self, content, assfile, options):

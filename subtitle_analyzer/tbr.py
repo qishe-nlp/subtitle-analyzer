@@ -79,16 +79,17 @@ def merge_content(npfile, vpfile):
 @click.option("--vpfile", help="Specify the reviewed verb phrase filename", prompt="verb phrase source")
 @click.option("--lang", help="Specify the language", default="en", prompt="language")
 @click.option("--srtfile", help="Specify the subtitle filename", prompt="source")
+@click.option("--cnsrtfile", required=False, help="Specify the Chinese subtitle filename", default=None)
 @click.option("--assfile", required=False, help="Specify the output ass filename", default=None)
 @click.option("--google", required=False, help="Whether extra help needed", type=bool, default=False)
-def gen_phrase_ass(npfile, vpfile, lang, srtfile, assfile, google):
+def gen_phrase_ass(npfile, vpfile, lang, srtfile, cnsrtfile, assfile, google):
   content = merge_content(npfile, vpfile)
   print(content)
   analyzer = PhraseAnalyzer(lang)
   exs = analyzer._tbr_line_phrases(content, google)
   print(exs)
   if assfile:
-    ass_writer = PhraseASSWriter(srtfile)
+    ass_writer = PhraseASSWriter(srtfile, cnsrtfile)
     ass_writer.write(exs, assfile, {"animation": False}) 
 
 

@@ -7,3 +7,4 @@ dist
 apidocs/build
 review
 *.zip
+*.csv
