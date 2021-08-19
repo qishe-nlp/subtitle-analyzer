@@ -1,5 +1,5 @@
 import pysubs2
-
+import os
 
 def _underline(w):
   """Add underline for phrases with ass style
@@ -16,6 +16,9 @@ class PhraseASSWriter:
   """Write phrase information with time stamp into ass file
   """
 
+  _local_dir = os.path.dirname(__file__)
+  _srtfile = os.path.join(_local_dir, 'empty.srt')
+
   def __init__(self, srtfile, cn_srtfile=None):
     """Initialize subtitle object from srtfile
 
@@ -23,7 +26,7 @@ class PhraseASSWriter:
       srtfile (str): subtitle filename
     """
 
-    self._subs = pysubs2.load(srtfile) 
+    self._subs = pysubs2.load(self.__class__._srtfile)
     self._subs.info['PlayResX'] = 640
     self._subs.info['PlayResY'] = 360
     self._cn_subs = None
@@ -40,8 +43,8 @@ class PhraseASSWriter:
 
     default_style = self._subs.styles["Default"]
     default_style.fontsize = 20
-    default_style.shadow = 0.5  # shadow: 0.5 px
-    default_style.outline = 0.5 # font outline: 0.5 px
+    default_style.shadow = 0.3  # shadow: 0.3 px
+    default_style.outline = 0.3 # font outline: 0.3 px
     default_style.italic = -1 
     default_style.bold = -1 
     default_style.marginl = 10
@@ -54,9 +57,9 @@ class PhraseASSWriter:
     phrase_style.alignment = 4
     phrase_style.fontsize = 24
     phrase_style.borderphrase_style = 1
-    phrase_style.shadow = 0.5  # shadow: 0.5 px
+    phrase_style.shadow = 0.3  # shadow: 0.3 px
     phrase_style.backcolor = pysubs2.Color(0, 0, 0, 100) # shadow color: black with (255-100)/255 transparent
-    phrase_style.outline = 0.5 # font outline: 0.5 px
+    phrase_style.outline = 0.3 # font outline: 0.3 px
     phrase_style.outlinecolor = pysubs2.Color(0, 0, 0, 20) # outline color: black with (255-20)/255 transparent
     phrase_style.marginl = 24
     phrase_style.marginr = 10
@@ -72,9 +75,9 @@ class PhraseASSWriter:
     verb_style.alignment = 7
     verb_style.fontsize = 24
     verb_style.borderverb_style = 1
-    verb_style.shadow = 0.5  # shadow: 0.5 px
+    verb_style.shadow = 0.3  # shadow: 0.3 px
     verb_style.backcolor = pysubs2.Color(0, 0, 0, 100) # shadow color: black with (255-100)/255 transparent
-    verb_style.outline = 0.5 # font outline: 0.5 px
+    verb_style.outline = 0.3 # font outline: 0.3 px
     verb_style.outlinecolor = pysubs2.Color(0, 0, 0, 20) # outline color: black with (255-20)/255 transparent
     verb_style.marginl = 24
     verb_style.marginr = 10
@@ -84,8 +87,8 @@ class PhraseASSWriter:
 
     cn_default_style = self._subs.styles["Default"].copy()
     cn_default_style.fontsize = 20
-    cn_default_style.shadow = 0.5  # shadow: 0.5 px
-    cn_default_style.outline = 0.5 # font outline: 0.5 px
+    cn_default_style.shadow = 0.1  # shadow: 0.1 px
+    cn_default_style.outline = 0.1 # font outline: 0.1 px
     cn_default_style.italic = -1 
     cn_default_style.bold = -1 
     cn_default_style.marginl = 10

@@ -1,9 +1,11 @@
 def find_pos(sentence, phrases, label):
   phrases_ranges = []
   for p in phrases:
-    start = sentence.find(p)
-    end = start + len(p)
-    phrases_ranges.append((start, end, label))
+    filtered_sentence = " ".join(sentence.split()) # remove /xa0
+    start = filtered_sentence.find(p)
+    if start != -1: # strange cases, should NOT happened
+      end = start + len(p)
+      phrases_ranges.append((start, end, label))
   return phrases_ranges
 
 
