@@ -6,6 +6,11 @@ def find_pos(sentence, phrases, label):
     if start != -1: # strange cases, should NOT happened
       end = start + len(p)
       phrases_ranges.append((start, end, label))
+    else:
+      print("{} {} {}".format("="*10, "ERROR BEGIN", "="*10))
+      print(sentence)
+      print(p)
+      print("{} {} {}".format("="*10, "ERROR END", "="*10))
   return phrases_ranges
 
 

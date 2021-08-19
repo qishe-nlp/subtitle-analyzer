@@ -8,3 +8,4 @@ apidocs/build
 review
 *.zip
 *.csv
+!empty.srt
