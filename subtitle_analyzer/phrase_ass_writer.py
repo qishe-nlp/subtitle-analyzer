@@ -19,11 +19,11 @@ class PhraseASSWriter:
   _local_dir = os.path.dirname(__file__)
   _srtfile = os.path.join(_local_dir, 'empty.srt')
 
-  def __init__(self, srtfile, cn_srtfile=None):
-    """Initialize subtitle object from srtfile
+  def __init__(self, cn_srtfile=None):
+    """Initialize subtitle object from empty srtfile
 
     Args:
-      srtfile (str): subtitle filename
+      cn_srtfile (str): Chineses subtitle filename
     """
 
     self._subs = pysubs2.load(self.__class__._srtfile)
