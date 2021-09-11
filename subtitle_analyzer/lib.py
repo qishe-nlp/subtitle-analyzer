@@ -1,16 +1,35 @@
-def find_pos(sentence, phrases, label):
+import re
+
+def find_phrases_pos(sentence, phrases, label):
   phrases_ranges = []
   for p in phrases:
     start = sentence.find(p)
-    if start != -1: # strange cases, should NOT happened
+    if start != -1:
       end = start + len(p)
       phrases_ranges.append((start, end, label))
-    else:
+    else: # strange cases, should NOT happened
       print("{} {} {}".format("="*10, "ERROR BEGIN", "="*10))
       print(sentence)
       print(p)
       print("{} {} {}".format("="*10, "ERROR END", "="*10))
   return phrases_ranges
+
+def find_vocabs_pos(sentence, vocabs, label):
+  vocabs_ranges = []
+  segs = re.split('(\W+)', sentence)
+  for v in vocabs:
+    try:
+      index_in_segs = segs.index(v)
+      start = sum([len(s) for s in segs[:index_in_segs]])
+      end = start + len(v)
+      vocabs_ranges.append((start, end, label))
+    except Exception as e:
+      print(e)
+      print("{} {} {}".format("="*10, "ERROR BEGIN", "="*10))
+      print(sentence)
+      print(v)
+      print("{} {} {}".format("="*10, "ERROR END", "="*10))
+  return vocabs_ranges
 
 
 def merge_ranges(ranges):
@@ -48,8 +67,8 @@ def make_markers(line_phrases):
   sentence = line_phrases["sentence"]
   filtered_sentence = " ".join(sentence.split()) # remove /xa0
 
-  verbs_ranges = find_pos(filtered_sentence, vs, "verbs")
-  noun_phrases_ranges = find_pos(filtered_sentence, nps, "noun_phrases")
+  verbs_ranges = find_vocabs_pos(filtered_sentence, vs, "verbs")
+  noun_phrases_ranges = find_phrases_pos(filtered_sentence, nps, "noun_phrases")
 
   all_ranges = noun_phrases_ranges+verbs_ranges
   print(all_ranges)
