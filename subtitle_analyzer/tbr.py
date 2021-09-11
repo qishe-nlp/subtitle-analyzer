@@ -70,6 +70,8 @@ def merge_content(npfile, vpfile):
     sentence, start, end = np["sentence"], np["start"], np["end"]
     assert(start == vp["start"])
     assert(end == vp["end"])
+    print(sentence)
+    print(vp["sentence"])
     assert(sentence == vp["sentence"])
     content.append({"sentence": sentence, "start": start, "end": end, "noun_phrases": json.loads(np["phrases"]), "verbs": json.loads(vp["vs"])})
   return content

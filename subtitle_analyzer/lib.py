@@ -1,8 +1,7 @@
 def find_pos(sentence, phrases, label):
   phrases_ranges = []
   for p in phrases:
-    filtered_sentence = " ".join(sentence.split()) # remove /xa0
-    start = filtered_sentence.find(p)
+    start = sentence.find(p)
     if start != -1: # strange cases, should NOT happened
       end = start + len(p)
       phrases_ranges.append((start, end, label))
@@ -47,12 +46,13 @@ def make_markers(line_phrases):
   vs = [v["text"] for v in line_phrases["verbs"]]
   nps = line_phrases["noun_phrases"]
   sentence = line_phrases["sentence"]
+  filtered_sentence = " ".join(sentence.split()) # remove /xa0
 
-  verbs_ranges = find_pos(sentence, vs, "verbs")
-  noun_phrases_ranges = find_pos(sentence, nps, "noun_phrases")
+  verbs_ranges = find_pos(filtered_sentence, vs, "verbs")
+  noun_phrases_ranges = find_pos(filtered_sentence, nps, "noun_phrases")
 
   all_ranges = noun_phrases_ranges+verbs_ranges
   print(all_ranges)
-  doc_mark = extend_ranges(all_ranges, len(sentence))
-  markers = [(sentence[d[0]: d[1]], d[2]) for d in doc_mark]  
+  doc_mark = extend_ranges(all_ranges, len(filtered_sentence))
+  markers = [(filtered_sentence[d[0]: d[1]], d[2]) for d in doc_mark]
   return markers
