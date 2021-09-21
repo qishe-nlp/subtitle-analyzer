@@ -89,8 +89,10 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">subtitle_analyzer package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.entry">subtitle_analyzer.entry module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.lib">subtitle_analyzer.lib module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.phrase_analyzer">subtitle_analyzer.phrase_analyzer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.phrase_ass_writer">subtitle_analyzer.phrase_ass_writer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.tbr">subtitle_analyzer.tbr module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.vocab_analyzer">subtitle_analyzer.vocab_analyzer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.vocab_ass_writer">subtitle_analyzer.vocab_ass_writer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer">Module contents</a></li>
@@ -175,6 +177,34 @@
 <div class="section" id="module-subtitle_analyzer.entry">
 <span id="subtitle-analyzer-entry-module"></span><h2>subtitle_analyzer.entry module<a class="headerlink" href="#module-subtitle_analyzer.entry" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="module-subtitle_analyzer.lib">
+<span id="subtitle-analyzer-lib-module"></span><h2>subtitle_analyzer.lib module<a class="headerlink" href="#module-subtitle_analyzer.lib" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="subtitle_analyzer.lib.extend_ranges">
+<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">extend_ranges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.extend_ranges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="subtitle_analyzer.lib.find_phrases_pos">
+<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">find_phrases_pos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phrases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.find_phrases_pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="subtitle_analyzer.lib.find_vocabs_pos">
+<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">find_vocabs_pos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vocabs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.find_vocabs_pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="subtitle_analyzer.lib.make_markers">
+<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">make_markers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_phrases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.make_markers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="subtitle_analyzer.lib.merge_ranges">
+<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">merge_ranges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.merge_ranges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-subtitle_analyzer.phrase_analyzer">
 <span id="subtitle-analyzer-phrase-analyzer-module"></span><h2>subtitle_analyzer.phrase_analyzer module<a class="headerlink" href="#module-subtitle_analyzer.phrase_analyzer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
@@ -203,7 +233,7 @@
 <span id="subtitle-analyzer-phrase-ass-writer-module"></span><h2>subtitle_analyzer.phrase_ass_writer module<a class="headerlink" href="#module-subtitle_analyzer.phrase_ass_writer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="subtitle_analyzer.phrase_ass_writer.PhraseASSWriter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.phrase_ass_writer.</span></code><code class="sig-name descname"><span class="pre">PhraseASSWriter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">srtfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_ass_writer.PhraseASSWriter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.phrase_ass_writer.</span></code><code class="sig-name descname"><span class="pre">PhraseASSWriter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cn_srtfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_ass_writer.PhraseASSWriter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Write phrase information with time stamp into ass file</p>
 <dl class="py method">
@@ -222,6 +252,19 @@
 </dd></dl>
 
 </dd></dl>
+
+</div>
+<div class="section" id="module-subtitle_analyzer.tbr">
+<span id="subtitle-analyzer-tbr-module"></span><h2>subtitle_analyzer.tbr module<a class="headerlink" href="#module-subtitle_analyzer.tbr" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="subtitle_analyzer.tbr.merge_content">
+<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.tbr.</span></code><code class="sig-name descname"><span class="pre">merge_content</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vpfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.tbr.merge_content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="subtitle_analyzer.tbr.test_read">
+<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.tbr.</span></code><code class="sig-name descname"><span class="pre">test_read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.tbr.test_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-subtitle_analyzer.vocab_analyzer">

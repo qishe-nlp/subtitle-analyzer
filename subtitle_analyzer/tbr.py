@@ -40,16 +40,13 @@ def subtitle_phrase(srtfile, lang, dstname):
   print(json.dumps(phase), flush=True)
 
   np_content = []
-  #pp_content = []
   v_content = []
 
   for e in exs:
     np_content.append({"start": e["start"], "end": e["end"], "sentence": e["sentence"], "phrases": json.dumps(e["noun_phrases"])})
-    #pp_content.append({"start": e["start"], "end": e["end"], "sentence": e["sentence"], "phrases": json.dumps(e["prep_phrases"])})
     v_content.append({"start": e["start"], "end": e["end"], "sentence": e["sentence"], "vs": json.dumps(e["verbs"]), "pps": json.dumps(e["passive_phrases"]), "phrases": json.dumps(e["verb_phrases"])})
 
   _write_to_csv(["start", "end", "sentence", "phrases"], np_content, csvfile=dstname+".noun_phrase.csv")
-  #_write_to_csv(["start", "end", "sentence", "phrases"], pp_content, csvfile=dstname+".prep_phrase.csv")
   _write_to_csv(["start", "end", "sentence", "vs", "pps", "phrases"], v_content, csvfile=dstname+".verb_phrase.csv")
 
 
