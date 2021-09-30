@@ -81,7 +81,7 @@ class PhraseASSWriter:
     verb_style.outlinecolor = pysubs2.Color(0, 0, 0, 20) # outline color: black with (255-20)/255 transparent
     verb_style.marginl = 24
     verb_style.marginr = 10
-    verb_style.marginv = 24
+    verb_style.marginv = 44
     verb_style.primarycolor = pysubs2.Color(255, 255, 255, 0) # font color: white, no transparent
     self._subs.styles["Verb"] = verb_style
 
