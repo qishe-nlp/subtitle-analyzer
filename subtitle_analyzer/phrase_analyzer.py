@@ -1,6 +1,7 @@
 from sencore import PhraseParser
 from x2cdict import PhraseDict, VocabDict
 from .lib import make_markers
+import re
 
 
 class PhraseAnalyzer:
@@ -80,7 +81,7 @@ class PhraseAnalyzer:
     
     noun_phrases = []
     for p in line_phrases["noun_phrases"]:
-      result = self._lookup_phrase(p)
+      result = self._lookup_phrase(p, line_phrases["sentence"])
       if result != None:
         noun_phrases.append(result)
     verbs = []
@@ -94,15 +95,24 @@ class PhraseAnalyzer:
       "verbs": verbs,
     }
 
-  def _lookup_phrase(self, p):
+  def _lookup_phrase(self, p, line_text):
     """Look up dictionary for phrase explanation
   
     Args:
       p (str): phrase
     """
+
+    content = line_text.replace(p, "<span>{}</span>".format(p))
     try:
-      _r = self._phrase_dictapi.search(p)
-      result = _r 
+      _r = self._phrase_dictapi.search(content)
+      print(_r)
+      translated = re.search('<span>(.+?)</ span>', _r["translated"]).group(1)
+      original = p
+      result = {
+        "original": p,
+        "translated": translated,
+        "from": _r["from"]
+      }
     except Exception as e:
       result = None
     return result 
