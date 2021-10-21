@@ -303,7 +303,7 @@ test = ["pytest", "pytest-coverage", "mock", "typer-cli"]
 
 [[package]]
 name = "phrase-detective"
-version = "0.1.30"
+version = "0.1.31"
 description = "Phrase recognizer component for spacy pipeline"
 category = "main"
 optional = false
@@ -461,7 +461,7 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "sencore"
-version = "0.1.29"
+version = "0.1.30"
 description = "sentence nlp parser for multilingua"
 category = "main"
 optional = false
@@ -469,7 +469,7 @@ python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 click = ">=7.1.1,<8.0.0"
-phrase-detective = ">=0.1.28,<0.2.0"
+phrase-detective = ">=0.1.31,<0.2.0"
 spacy = ">=3.1.0,<4.0.0"
 
 [[package]]
@@ -832,7 +832,7 @@ pymongo = ">=3.10.1,<4.0.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "f86136aec1726e809d1d501a0fbf42f0d7a08d9cd7256967b6d4592cc950daf2"
+content-hash = "8ec9f78d40332f27e5613affb2d5ca224235e359aa6db06dfa837f64157d3744"
 
 [metadata.files]
 alabaster = [
@@ -1053,8 +1053,8 @@ pathy = [
     {file = "pathy-0.6.0.tar.gz", hash = "sha256:f83f1eddf77dd86e824143eef8d9adbe0785c3cdd5ec0ed6c0edea3227385048"},
 ]
 phrase-detective = [
-    {file = "phrase-detective-0.1.30.tar.gz", hash = "sha256:bc4b4e6ceebc289024407020b0cf284190cce0011bd6d49a2b126c60831dc376"},
-    {file = "phrase_detective-0.1.30-py3-none-any.whl", hash = "sha256:f3b51eea25505ec1bf4ceb88fc600fb3fa2cf1fbebeb5fe5ee68121d837b810d"},
+    {file = "phrase-detective-0.1.31.tar.gz", hash = "sha256:6c7569eaf30fb78f2d1aba9d46f99b9a16efd9bd16ff827a76349056a85f2611"},
+    {file = "phrase_detective-0.1.31-py3-none-any.whl", hash = "sha256:fe4b52e7082b152e0ea894bc3b5ea408ecb3230aa433b54fd44c3b32009b671e"},
 ]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
@@ -1236,8 +1236,8 @@ rfc3986 = [
     {file = "rfc3986-1.5.0.tar.gz", hash = "sha256:270aaf10d87d0d4e095063c65bf3ddbc6ee3d0b226328ce21e036f946e421835"},
 ]
 sencore = [
-    {file = "sencore-0.1.29-py3-none-any.whl", hash = "sha256:b9d9d354e6255e4ea5707e249686a6e90eb074998596d69bb37c13161f8e7bab"},
-    {file = "sencore-0.1.29.tar.gz", hash = "sha256:81b50c9b251f3161a08f08bc4763ca5f102eb1a2b5858e751886ba70668fda3e"},
+    {file = "sencore-0.1.30-py3-none-any.whl", hash = "sha256:c8a1536b4a829a3872e7ad73241c2257f8a1e808aaaef2acb7caea52f68a4820"},
+    {file = "sencore-0.1.30.tar.gz", hash = "sha256:8f696525aba387e4b4f5b99b7ee3bde058ab48d5abe0d6e2549efe865f620322"},
 ]
 smart-open = [
     {file = "smart_open-5.2.1-py3-none-any.whl", hash = "sha256:71d14489da58b60ce12fc3ecb823facc59a8b23cd1b58edb97175640350d3a62"},

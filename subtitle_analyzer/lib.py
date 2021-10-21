@@ -62,8 +62,9 @@ def extend_ranges(ranges, maxlen):
   return result
 
 def make_markers(line_phrases):
+  print(line_phrases)
   vs = [v["text"] for v in line_phrases["verbs"]]
-  nps = line_phrases["noun_phrases"]
+  nps = [np["original"] for np in line_phrases["noun_phrases"]]
   sentence = line_phrases["sentence"]
   filtered_sentence = " ".join(sentence.split()) # remove /xa0
 

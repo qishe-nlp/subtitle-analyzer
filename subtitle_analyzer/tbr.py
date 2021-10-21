@@ -1,6 +1,7 @@
 from subtitlecore import Subtitle
 from subtitle_analyzer import PhraseAnalyzer
 from subtitle_analyzer import PhraseASSWriter
+from subtitle_analyzer.lib import make_markers
 
 import csv
 
@@ -34,7 +35,7 @@ def subtitle_phrase(srtfile, lang, dstname):
   print(json.dumps(phase), flush=True)
 
   analyzer = PhraseAnalyzer(lang)
-  exs = analyzer._tbr_phrases(sens)
+  exs = analyzer._tbr_line_phrases(sens)
 
   phase = {"step": 3, "msg": "Finish phrases dictionary lookup", "vocabs": exs[:20]}
   print(json.dumps(phase), flush=True)
@@ -44,10 +45,10 @@ def subtitle_phrase(srtfile, lang, dstname):
 
   for e in exs:
     np_content.append({"start": e["start"], "end": e["end"], "sentence": e["sentence"], "phrases": json.dumps(e["noun_phrases"])})
-    v_content.append({"start": e["start"], "end": e["end"], "sentence": e["sentence"], "vs": json.dumps(e["verbs"]), "pps": json.dumps(e["passive_phrases"]), "phrases": json.dumps(e["verb_phrases"])})
+    v_content.append({"start": e["start"], "end": e["end"], "sentence": e["sentence"], "verbs": json.dumps(e["verbs"])})
 
   _write_to_csv(["start", "end", "sentence", "phrases"], np_content, csvfile=dstname+".noun_phrase.csv")
-  _write_to_csv(["start", "end", "sentence", "vs", "pps", "phrases"], v_content, csvfile=dstname+".verb_phrase.csv")
+  _write_to_csv(["start", "end", "sentence", "verbs"], v_content, csvfile=dstname+".verb.csv")
 
 
 def merge_content(npfile, vpfile):
@@ -70,22 +71,20 @@ def merge_content(npfile, vpfile):
     print(sentence)
     print(vp["sentence"])
     assert(sentence == vp["sentence"])
-    content.append({"sentence": sentence, "start": start, "end": end, "noun_phrases": json.loads(np["phrases"]), "verbs": json.loads(vp["vs"])})
+    content.append({"sentence": sentence, "start": start, "end": end, "noun_phrases": json.loads(np["phrases"]), "verbs": json.loads(vp["verbs"])})
   return content
 
 @click.command()
 @click.option("--npfile", help="Specify the reviewed noun phrase filename", prompt="noun phrase source")
 @click.option("--vpfile", help="Specify the reviewed verb phrase filename", prompt="verb phrase source")
-@click.option("--lang", help="Specify the language", default="en", prompt="language")
 @click.option("--cnsrtfile", required=False, help="Specify the Chinese subtitle filename", default=None)
 @click.option("--assfile", required=False, help="Specify the output ass filename", default=None)
-@click.option("--google", required=False, help="Whether extra help needed", type=bool, default=False)
-def gen_phrase_ass(npfile, vpfile, lang, cnsrtfile, assfile, google):
+def gen_ass(npfile, vpfile, cnsrtfile, assfile):
   content = merge_content(npfile, vpfile)
-  print(content)
-  analyzer = PhraseAnalyzer(lang)
-  exs = analyzer._tbr_line_phrases(content, google)
-  print(exs)
+  exs = []
+  for e in content:
+    e["markers"] = make_markers(e)
+    exs.append(e)
   if assfile:
     ass_writer = PhraseASSWriter(cnsrtfile)
     ass_writer.write(exs, assfile, {"animation": False}) 
