@@ -47,8 +47,8 @@ def subtitle_phrase(srtfile, lang, dstname):
     np_content.append({"start": e["start"], "end": e["end"], "sentence": e["sentence"], "phrases": json.dumps(e["noun_phrases"])})
     v_content.append({"start": e["start"], "end": e["end"], "sentence": e["sentence"], "verbs": json.dumps(e["verbs"])})
 
-  _write_to_csv(["start", "end", "sentence", "phrases"], np_content, csvfile=dstname+".noun_phrase.csv")
-  _write_to_csv(["start", "end", "sentence", "verbs"], v_content, csvfile=dstname+".verb.csv")
+  _write_to_csv(["start", "end", "sentence", "phrases"], np_content, csvfile=dstname+".tbr."+lang+".noun_phrase.csv")
+  _write_to_csv(["start", "end", "sentence", "verbs"], v_content, csvfile=dstname+".tbr."+lang+".verb.csv")
 
 
 def merge_content(npfile, vpfile):
