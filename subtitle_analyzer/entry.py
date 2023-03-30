@@ -9,8 +9,8 @@ import json
 @click.option("--srtfile", help="Specify the subtitle filename", prompt="srtfile")
 @click.option("--lang", help="Specify the language", default="en", prompt="language")
 @click.option("--assfile", required=False, help="Specify the output ass filename", default=None)
-@click.option("--google", required=False, help="Whether extra help needed", type=bool, default=False)
-def subtitle_vocab(srtfile, lang, assfile, google):
+@click.option("--external", required=False, help="Whether extra help needed", type=bool, default=False)
+def subtitle_vocab(srtfile, lang, assfile, external):
 
   phase = {"step": 1, "msg": "Start sentenizing"}
   print(json.dumps(phase), flush=True)
@@ -24,7 +24,7 @@ def subtitle_vocab(srtfile, lang, assfile, google):
   print(json.dumps(phase), flush=True)
 
   analyzer = VocabAnalyzer(lang)
-  exs = analyzer.get_line_vocabs(sens, google)
+  exs = analyzer.get_line_vocabs(sens, external)
   shown = exs[:20]
 
   phase = {"step": 3, "msg": "Finish vocabs dictionary lookup", "vocabs": shown}
@@ -42,8 +42,8 @@ def subtitle_vocab(srtfile, lang, assfile, google):
 @click.option("--srtfile", help="Specify the subtitle filename", prompt="source")
 @click.option("--lang", help="Specify the language", default="en", prompt="language")
 @click.option("--assfile", required=False, help="Specify the output ass filename", default=None)
-@click.option("--google", required=False, help="Whether extra help needed", type=bool, default=False)
-def subtitle_phrase(srtfile, lang, assfile, google):
+@click.option("--external", required=False, help="Whether extra help needed", type=bool, default=False)
+def subtitle_phrase(srtfile, lang, assfile, external):
 
   phase = {"step": 1, "msg": "Start sentenizing"}
   print(json.dumps(phase), flush=True)
@@ -57,7 +57,7 @@ def subtitle_phrase(srtfile, lang, assfile, google):
   print(json.dumps(phase), flush=True)
 
   analyzer = PhraseAnalyzer(lang)
-  exs = analyzer.get_line_phrases(sens, google)
+  exs = analyzer.get_line_phrases(sens, external)
 
   phase = {"step": 3, "msg": "Finish phrases dictionary lookup", "vocabs": exs[:10]}
   print(json.dumps(phase), flush=True)

@@ -4,6 +4,7 @@
 pip3 install --verbose subtitle_analyzer
 python -m spacy download en_core_web_trf
 python -m spacy download es_dep_news_trf
+python -m spacy download de_dep_news_trf
 ```
 
 # Usage
@@ -12,16 +13,18 @@ Please refer to [api docs](https://qishe-nlp.github.io/subtitle-analyzer/).
 
 ### Excutable usage
 
+Since the x2cdict needs environment variables `DICT_DB_HOST` and `DEEPL_AUTH_KEY`, so **Don't forget!!!**.
+
 * Write ass file with vocabulary information
 
 ```shell
-sta_vocab --srtfile movie.srt --lang en --assfile en_vocab.ass --google False
+sta_vocab --srtfile movie.srt --lang en --assfile en_vocab.ass --external False
 ``` 
 
 * Write ass file with phrase information 
 
 ```shell
-sta_phrase --srtfile movie.srt --lang en --assfile en_phrase.ass --google False
+sta_phrase --srtfile movie.srt --lang en --assfile en_phrase.ass --external False
 ```
 
 ### Package usage
@@ -31,7 +34,7 @@ from subtitle_analyzer import VocabAnalyzer, PhraseAnalyzer
 from subtitle_analyzer import VocabASSWriter, PhraseASSWriter
 import json
 
-def subtitle_vocab(srtfile, lang, assfile, google):
+def subtitle_vocab(srtfile, lang, assfile, external):
 
   phase = {"step": 1, "msg": "Start sentenizing"}
   print(json.dumps(phase), flush=True)
@@ -45,7 +48,7 @@ def subtitle_vocab(srtfile, lang, assfile, google):
   print(json.dumps(phase), flush=True)
 
   analyzer = VocabAnalyzer(lang)
-  exs = analyzer.get_line_vocabs(sens, google)
+  exs = analyzer.get_line_vocabs(sens, external)
   shown = exs[:20]
 
   phase = {"step": 3, "msg": "Finish vocabs dictionary lookup", "vocabs": shown}
@@ -58,7 +61,7 @@ def subtitle_vocab(srtfile, lang, assfile, google):
     phase = {"step": 4, "msg": "Finish ass saving"} 
     print(json.dumps(phase), flush=True)
 
-def subtitle_phrase(srtfile, lang, assfile, google):
+def subtitle_phrase(srtfile, lang, assfile, external):
 
   phase = {"step": 1, "msg": "Start sentenizing"}
   print(json.dumps(phase), flush=True)
@@ -72,7 +75,7 @@ def subtitle_phrase(srtfile, lang, assfile, google):
   print(json.dumps(phase), flush=True)
 
   analyzer = PhraseAnalyzer(lang)
-  exs = analyzer.get_line_phrases(sens, google)
+  exs = analyzer.get_line_phrases(sens, external)
 
   phase = {"step": 3, "msg": "Finish phrases dictionary lookup", "vocabs": exs[:10]}
   print(json.dumps(phase), flush=True)
@@ -120,7 +123,7 @@ make html
 python -m http.server -d build/html
 ```
 
-### Hose docs on github pages
+### Host docs on github pages
 ```
 cp -rf apidocs/build/html/* docs/
 ```

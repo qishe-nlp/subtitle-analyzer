@@ -19,13 +19,13 @@ class PhraseAnalyzer:
     self._vocab_dictapi = VocabDict(lang)
 
  
-  def _tbr_line_phrases(self, sentences, google=False):
+  def _tbr_line_phrases(self, sentences, external=False):
     _phrases = []
 
     for e in sentences:
       _line_phrases = self._phrase_parser.digest(e["text"])
       _line_phrases["sentence"] = e["text"]
-      _phrases_with_meaning = self._look_up(_line_phrases, google)
+      _phrases_with_meaning = self._look_up(_line_phrases, external)
       _phrases_with_meaning["start"] = e["start"]
       _phrases_with_meaning["end"] = e["end"]
       _phrases_with_meaning["sentence"] = e["text"]
@@ -33,19 +33,19 @@ class PhraseAnalyzer:
 
     return _phrases
 
-  def get_line_phrases(self, sentences, google=False):
+  def get_line_phrases(self, sentences, external=False):
     """Parse sentences with timestamp into phrases and look up dictionary for explanation
 
     Args:
       sentences (list): sentences with timestamp information
-      google (bool): whether using google translation
+      external (bool): whether using external translation
     """
 
     _phrases = []
 
     for e in sentences:
       _line_phrases = self._phrase_parser.digest(e["text"])
-      _phrases_with_meaning = self._look_up(_line_phrases, google)
+      _phrases_with_meaning = self._look_up(_line_phrases, external)
       _phrases_with_meaning["start"] = e["start"]
       _phrases_with_meaning["end"] = e["end"]
       _phrases_with_meaning["markers"] = _line_phrases["markers"] 
@@ -53,12 +53,12 @@ class PhraseAnalyzer:
 
     return _phrases
   
-  def _look_up(self, line_phrases, google=False):
+  def _look_up(self, line_phrases, external=False):
     """Look up dictionary for vocabularies in one line of subtitle
 
     Args:
       line_words (list): vocabularies in one line of subtitle
-      google (bool): whether using google translation
+      external (bool): whether using external translation
     """
     
     noun_phrases = []
@@ -69,7 +69,7 @@ class PhraseAnalyzer:
         noun_phrases.append(result)
     verbs = []
     for p in line_phrases["verbs"]:
-      result = self._lookup_verb_dict(p, google)
+      result = self._lookup_verb_dict(p, external)
       if result != None:
         verbs.append(result)
 
@@ -111,16 +111,16 @@ class PhraseAnalyzer:
       result = None
     return result 
 
-  def _lookup_verb_dict(self, verb, google=False):
+  def _lookup_verb_dict(self, verb, external=False):
     """Look up dictionary for verb explanation
   
     Args:
       verb (str): verb
-      google (bool): whether using google translation
+      external (bool): whether using external translation
     """
 
     result = None
-    dict_searched = self._vocab_dictapi.search(verb['text'], 'VERB', google)
+    dict_searched = self._vocab_dictapi.search(verb['text'], 'VERB', external)
     if dict_searched != None:
       verb["meaning"] = dict_searched["meaning"]
       result = verb

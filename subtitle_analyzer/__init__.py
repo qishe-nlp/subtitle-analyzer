@@ -16,11 +16,11 @@ This module demostrates the usage of package `subtitle_analyzer`.
 
   .. code:: shell
 
-    $ sta_vocab --srtfile movie.srt --lang en --assfile en_vocab.ass --google False
+    $ sta_vocab --srtfile movie.srt --lang en --assfile en_vocab.ass --external False
 
   .. code:: shell
 
-    $ sta_phrase --srtfile movie.srt --lang en --assfile en_phrase.ass --google False
+    $ sta_phrase --srtfile movie.srt --lang en --assfile en_phrase.ass --external False
 
 
 .. topic:: Write assfile with vocabulary information 
@@ -32,7 +32,7 @@ This module demostrates the usage of package `subtitle_analyzer`.
     from subtitle_analyzer import VocabASSWriter
     import json
 
-    def subtitle_vocab(srtfile, lang, assfile, google):
+    def subtitle_vocab(srtfile, lang, assfile, external):
 
       phase = {"step": 1, "msg": "Start sentenizing"}
       print(json.dumps(phase), flush=True)
@@ -46,7 +46,7 @@ This module demostrates the usage of package `subtitle_analyzer`.
       print(json.dumps(phase), flush=True)
 
       analyzer = VocabAnalyzer(lang)
-      exs = analyzer.get_line_vocabs(sens, google)
+      exs = analyzer.get_line_vocabs(sens, external)
       shown = exs[:20]
 
       phase = {"step": 3, "msg": "Finish vocabs dictionary lookup", "vocabs": shown}
@@ -69,7 +69,7 @@ This module demostrates the usage of package `subtitle_analyzer`.
     from subtitle_analyzer import PhraseASSWriter
     import json
 
-    def subtitle_phrase(srtfile, lang, assfile, google):
+    def subtitle_phrase(srtfile, lang, assfile, external):
 
       phase = {"step": 1, "msg": "Start sentenizing"}
       print(json.dumps(phase), flush=True)
@@ -83,7 +83,7 @@ This module demostrates the usage of package `subtitle_analyzer`.
       print(json.dumps(phase), flush=True)
 
       analyzer = PhraseAnalyzer(lang)
-      exs = analyzer.get_line_phrases(sens, google)
+      exs = analyzer.get_line_phrases(sens, external)
 
       phase = {"step": 3, "msg": "Finish phrases dictionary lookup", "vocabs": exs[:10]}
       print(json.dumps(phase), flush=True)
@@ -97,7 +97,7 @@ This module demostrates the usage of package `subtitle_analyzer`.
 
 """
 
-__version__ = '0.1.21'
+__version__ = '0.1.22'
 
 from .vocab_analyzer import VocabAnalyzer
 from .vocab_ass_writer import VocabASSWriter

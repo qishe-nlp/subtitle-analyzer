@@ -1,100 +1,79 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>subtitle_analyzer package &mdash; subtitle-analyzer 0.1.20 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>subtitle_analyzer package &mdash; subtitle analyzer 0.1.22 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="subtitle_analyzer" href="modules.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> subtitle-analyzer
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            subtitle analyzer
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">subtitle_analyzer</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">subtitle_analyzer package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.entry">subtitle_analyzer.entry module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.lib">subtitle_analyzer.lib module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.phrase_analyzer">subtitle_analyzer.phrase_analyzer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.phrase_ass_writer">subtitle_analyzer.phrase_ass_writer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.tbr">subtitle_analyzer.tbr module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.vocab_analyzer">subtitle_analyzer.vocab_analyzer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.vocab_ass_writer">subtitle_analyzer.vocab_ass_writer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.lib">subtitle_analyzer.lib module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.lib.extend_ranges"><code class="docutils literal notranslate"><span class="pre">extend_ranges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.lib.find_phrases_pos"><code class="docutils literal notranslate"><span class="pre">find_phrases_pos()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.lib.find_vocabs_pos"><code class="docutils literal notranslate"><span class="pre">find_vocabs_pos()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.lib.make_markers"><code class="docutils literal notranslate"><span class="pre">make_markers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.lib.merge_ranges"><code class="docutils literal notranslate"><span class="pre">merge_ranges()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.phrase_analyzer">subtitle_analyzer.phrase_analyzer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.phrase_analyzer.PhraseAnalyzer"><code class="docutils literal notranslate"><span class="pre">PhraseAnalyzer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.phrase_ass_writer">subtitle_analyzer.phrase_ass_writer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.phrase_ass_writer.PhraseASSWriter"><code class="docutils literal notranslate"><span class="pre">PhraseASSWriter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.tbr">subtitle_analyzer.tbr module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.tbr.merge_content"><code class="docutils literal notranslate"><span class="pre">merge_content()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.tbr.test_read"><code class="docutils literal notranslate"><span class="pre">test_read()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.vocab_analyzer">subtitle_analyzer.vocab_analyzer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.vocab_analyzer.VocabAnalyzer"><code class="docutils literal notranslate"><span class="pre">VocabAnalyzer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer.vocab_ass_writer">subtitle_analyzer.vocab_ass_writer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subtitle_analyzer.vocab_ass_writer.VocabASSWriter"><code class="docutils literal notranslate"><span class="pre">VocabASSWriter</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-subtitle_analyzer">Module contents</a></li>
 </ul>
 </li>
@@ -102,125 +81,83 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">subtitle-analyzer</a>
-        
+          <a href="index.html">subtitle analyzer</a>
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="modules.html">subtitle_analyzer</a> &raquo;</li>
-        
-      <li>subtitle_analyzer package</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">subtitle_analyzer</a></li>
+      <li class="breadcrumb-item active">subtitle_analyzer package</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/subtitle_analyzer.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="subtitle-analyzer-package">
-<h1>subtitle_analyzer package<a class="headerlink" href="#subtitle-analyzer-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-subtitle_analyzer.entry">
-<span id="subtitle-analyzer-entry-module"></span><h2>subtitle_analyzer.entry module<a class="headerlink" href="#module-subtitle_analyzer.entry" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-subtitle_analyzer.lib">
-<span id="subtitle-analyzer-lib-module"></span><h2>subtitle_analyzer.lib module<a class="headerlink" href="#module-subtitle_analyzer.lib" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="subtitle-analyzer-package">
+<h1>subtitle_analyzer package<a class="headerlink" href="#subtitle-analyzer-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-subtitle_analyzer.entry">
+<span id="subtitle-analyzer-entry-module"></span><h2>subtitle_analyzer.entry module<a class="headerlink" href="#module-subtitle_analyzer.entry" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-subtitle_analyzer.lib">
+<span id="subtitle-analyzer-lib-module"></span><h2>subtitle_analyzer.lib module<a class="headerlink" href="#module-subtitle_analyzer.lib" title="Permalink to this heading"></a></h2>
 <dl class="py function">
-<dt id="subtitle_analyzer.lib.extend_ranges">
-<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">extend_ranges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.extend_ranges" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.lib.extend_ranges">
+<span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></span><span class="sig-name descname"><span class="pre">extend_ranges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.extend_ranges" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="subtitle_analyzer.lib.find_phrases_pos">
-<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">find_phrases_pos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phrases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.find_phrases_pos" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.lib.find_phrases_pos">
+<span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></span><span class="sig-name descname"><span class="pre">find_phrases_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phrases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.find_phrases_pos" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="subtitle_analyzer.lib.find_vocabs_pos">
-<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">find_vocabs_pos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vocabs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.find_vocabs_pos" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.lib.find_vocabs_pos">
+<span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></span><span class="sig-name descname"><span class="pre">find_vocabs_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vocabs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.find_vocabs_pos" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="subtitle_analyzer.lib.make_markers">
-<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">make_markers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_phrases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.make_markers" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.lib.make_markers">
+<span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></span><span class="sig-name descname"><span class="pre">make_markers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_phrases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.make_markers" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="subtitle_analyzer.lib.merge_ranges">
-<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></code><code class="sig-name descname"><span class="pre">merge_ranges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.merge_ranges" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.lib.merge_ranges">
+<span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.lib.</span></span><span class="sig-name descname"><span class="pre">merge_ranges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.lib.merge_ranges" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</div>
-<div class="section" id="module-subtitle_analyzer.phrase_analyzer">
-<span id="subtitle-analyzer-phrase-analyzer-module"></span><h2>subtitle_analyzer.phrase_analyzer module<a class="headerlink" href="#module-subtitle_analyzer.phrase_analyzer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-subtitle_analyzer.phrase_analyzer">
+<span id="subtitle-analyzer-phrase-analyzer-module"></span><h2>subtitle_analyzer.phrase_analyzer module<a class="headerlink" href="#module-subtitle_analyzer.phrase_analyzer" title="Permalink to this heading"></a></h2>
 <dl class="py class">
-<dt id="subtitle_analyzer.phrase_analyzer.PhraseAnalyzer">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.phrase_analyzer.</span></code><code class="sig-name descname"><span class="pre">PhraseAnalyzer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_analyzer.PhraseAnalyzer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.phrase_analyzer.PhraseAnalyzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.phrase_analyzer.</span></span><span class="sig-name descname"><span class="pre">PhraseAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_analyzer.PhraseAnalyzer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>To get phrase information from sentences with timestamp</p>
 <dl class="py method">
-<dt id="subtitle_analyzer.phrase_analyzer.PhraseAnalyzer.get_line_phrases">
-<code class="sig-name descname"><span class="pre">get_line_phrases</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">google</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_analyzer.PhraseAnalyzer.get_line_phrases" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.phrase_analyzer.PhraseAnalyzer.get_line_phrases">
+<span class="sig-name descname"><span class="pre">get_line_phrases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_analyzer.PhraseAnalyzer.get_line_phrases" title="Permalink to this definition"></a></dt>
 <dd><p>Parse sentences with timestamp into phrases and look up dictionary for explanation</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sentences</strong> (<em>list</em>) – sentences with timestamp information</p></li>
-<li><p><strong>google</strong> (<em>bool</em>) – whether using google translation</p></li>
+<li><p><strong>external</strong> (<em>bool</em>) – whether using external translation</p></li>
 </ul>
 </dd>
 </dl>
@@ -228,20 +165,20 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-subtitle_analyzer.phrase_ass_writer">
-<span id="subtitle-analyzer-phrase-ass-writer-module"></span><h2>subtitle_analyzer.phrase_ass_writer module<a class="headerlink" href="#module-subtitle_analyzer.phrase_ass_writer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-subtitle_analyzer.phrase_ass_writer">
+<span id="subtitle-analyzer-phrase-ass-writer-module"></span><h2>subtitle_analyzer.phrase_ass_writer module<a class="headerlink" href="#module-subtitle_analyzer.phrase_ass_writer" title="Permalink to this heading"></a></h2>
 <dl class="py class">
-<dt id="subtitle_analyzer.phrase_ass_writer.PhraseASSWriter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.phrase_ass_writer.</span></code><code class="sig-name descname"><span class="pre">PhraseASSWriter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cn_srtfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_ass_writer.PhraseASSWriter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.phrase_ass_writer.PhraseASSWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.phrase_ass_writer.</span></span><span class="sig-name descname"><span class="pre">PhraseASSWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cn_srtfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_ass_writer.PhraseASSWriter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Write phrase information with time stamp into ass file</p>
 <dl class="py method">
-<dt id="subtitle_analyzer.phrase_ass_writer.PhraseASSWriter.write">
-<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_ass_writer.PhraseASSWriter.write" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.phrase_ass_writer.PhraseASSWriter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.phrase_ass_writer.PhraseASSWriter.write" title="Permalink to this definition"></a></dt>
 <dd><p>Write phrase information into ass file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>content</strong> (<em>list</em>) – phrase information with time stamp</p></li>
 <li><p><strong>assfile</strong> (<em>str</em>) – ass filename</p></li>
@@ -253,36 +190,36 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-subtitle_analyzer.tbr">
-<span id="subtitle-analyzer-tbr-module"></span><h2>subtitle_analyzer.tbr module<a class="headerlink" href="#module-subtitle_analyzer.tbr" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-subtitle_analyzer.tbr">
+<span id="subtitle-analyzer-tbr-module"></span><h2>subtitle_analyzer.tbr module<a class="headerlink" href="#module-subtitle_analyzer.tbr" title="Permalink to this heading"></a></h2>
 <dl class="py function">
-<dt id="subtitle_analyzer.tbr.merge_content">
-<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.tbr.</span></code><code class="sig-name descname"><span class="pre">merge_content</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vpfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.tbr.merge_content" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.tbr.merge_content">
+<span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.tbr.</span></span><span class="sig-name descname"><span class="pre">merge_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vpfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.tbr.merge_content" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="subtitle_analyzer.tbr.test_read">
-<code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.tbr.</span></code><code class="sig-name descname"><span class="pre">test_read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.tbr.test_read" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.tbr.test_read">
+<span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.tbr.</span></span><span class="sig-name descname"><span class="pre">test_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.tbr.test_read" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</div>
-<div class="section" id="module-subtitle_analyzer.vocab_analyzer">
-<span id="subtitle-analyzer-vocab-analyzer-module"></span><h2>subtitle_analyzer.vocab_analyzer module<a class="headerlink" href="#module-subtitle_analyzer.vocab_analyzer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-subtitle_analyzer.vocab_analyzer">
+<span id="subtitle-analyzer-vocab-analyzer-module"></span><h2>subtitle_analyzer.vocab_analyzer module<a class="headerlink" href="#module-subtitle_analyzer.vocab_analyzer" title="Permalink to this heading"></a></h2>
 <dl class="py class">
-<dt id="subtitle_analyzer.vocab_analyzer.VocabAnalyzer">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.vocab_analyzer.</span></code><code class="sig-name descname"><span class="pre">VocabAnalyzer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.vocab_analyzer.VocabAnalyzer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.vocab_analyzer.VocabAnalyzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.vocab_analyzer.</span></span><span class="sig-name descname"><span class="pre">VocabAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.vocab_analyzer.VocabAnalyzer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>To get vocabulary information from sentences with timestamp</p>
 <dl class="py method">
-<dt id="subtitle_analyzer.vocab_analyzer.VocabAnalyzer.get_line_vocabs">
-<code class="sig-name descname"><span class="pre">get_line_vocabs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">google</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.vocab_analyzer.VocabAnalyzer.get_line_vocabs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.vocab_analyzer.VocabAnalyzer.get_line_vocabs">
+<span class="sig-name descname"><span class="pre">get_line_vocabs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.vocab_analyzer.VocabAnalyzer.get_line_vocabs" title="Permalink to this definition"></a></dt>
 <dd><p>Parse sentences with timestamp into vocabularies and look up dictionary for explanation</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sentences</strong> (<em>list</em>) – sentences with timestamp information</p></li>
-<li><p><strong>google</strong> (<em>bool</em>) – whether using google translation</p></li>
+<li><p><strong>external</strong> (<em>bool</em>) – whether using external translation</p></li>
 </ul>
 </dd>
 </dl>
@@ -290,20 +227,20 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-subtitle_analyzer.vocab_ass_writer">
-<span id="subtitle-analyzer-vocab-ass-writer-module"></span><h2>subtitle_analyzer.vocab_ass_writer module<a class="headerlink" href="#module-subtitle_analyzer.vocab_ass_writer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-subtitle_analyzer.vocab_ass_writer">
+<span id="subtitle-analyzer-vocab-ass-writer-module"></span><h2>subtitle_analyzer.vocab_ass_writer module<a class="headerlink" href="#module-subtitle_analyzer.vocab_ass_writer" title="Permalink to this heading"></a></h2>
 <dl class="py class">
-<dt id="subtitle_analyzer.vocab_ass_writer.VocabASSWriter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">subtitle_analyzer.vocab_ass_writer.</span></code><code class="sig-name descname"><span class="pre">VocabASSWriter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">srtfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.vocab_ass_writer.VocabASSWriter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.vocab_ass_writer.VocabASSWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">subtitle_analyzer.vocab_ass_writer.</span></span><span class="sig-name descname"><span class="pre">VocabASSWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">srtfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.vocab_ass_writer.VocabASSWriter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Write vocabulary information with time stamp into ass file</p>
 <dl class="py method">
-<dt id="subtitle_analyzer.vocab_ass_writer.VocabASSWriter.write">
-<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.vocab_ass_writer.VocabASSWriter.write" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="subtitle_analyzer.vocab_ass_writer.VocabASSWriter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subtitle_analyzer.vocab_ass_writer.VocabASSWriter.write" title="Permalink to this definition"></a></dt>
 <dd><p>Write vocabulary information into ass file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>content</strong> (<em>list</em>) – vocabulary information with time stamp</p></li>
 <li><p><strong>assfile</strong> (<em>str</em>) – ass filename</p></li>
@@ -315,36 +252,36 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-subtitle_analyzer">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-subtitle_analyzer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-subtitle_analyzer">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-subtitle_analyzer" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">subtitle_analyzer</span></code> pacakage</p>
 <p>This module demostrates the usage of package <cite>subtitle_analyzer</cite>.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Install package</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip3 install --verbose subtitle_analyzer
-$ python -m spacy download en_core_web_trf
-$ python -m spacy download es_dep_news_trf
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--verbose<span class="w"> </span>subtitle_analyzer
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_trf
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>es_dep_news_trf
 </pre></div>
 </div>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">Use as executable</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sta_vocab --srtfile movie.srt --lang en --assfile en_vocab.ass --google False
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sta_vocab<span class="w"> </span>--srtfile<span class="w"> </span>movie.srt<span class="w"> </span>--lang<span class="w"> </span>en<span class="w"> </span>--assfile<span class="w"> </span>en_vocab.ass<span class="w"> </span>--external<span class="w"> </span>False
 </pre></div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sta_phrase --srtfile movie.srt --lang en --assfile en_phrase.ass --google False
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sta_phrase<span class="w"> </span>--srtfile<span class="w"> </span>movie.srt<span class="w"> </span>--lang<span class="w"> </span>en<span class="w"> </span>--assfile<span class="w"> </span>en_phrase.ass<span class="w"> </span>--external<span class="w"> </span>False
 </pre></div>
 </div>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">Write assfile with vocabulary information</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">subtitlecore</span> <span class="kn">import</span> <span class="n">Subtitle</span>
 <span class="kn">from</span> <span class="nn">subtitle_analyzer</span> <span class="kn">import</span> <span class="n">VocabAnalyzer</span>
 <span class="kn">from</span> <span class="nn">subtitle_analyzer</span> <span class="kn">import</span> <span class="n">VocabASSWriter</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="k">def</span> <span class="nf">subtitle_vocab</span><span class="p">(</span><span class="n">srtfile</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">assfile</span><span class="p">,</span> <span class="n">google</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">subtitle_vocab</span><span class="p">(</span><span class="n">srtfile</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">assfile</span><span class="p">,</span> <span class="n">external</span><span class="p">):</span>
 
   <span class="n">phase</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Start sentenizing&quot;</span><span class="p">}</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">phase</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -358,7 +295,7 @@ $ python -m spacy download es_dep_news_trf
   <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">phase</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
   <span class="n">analyzer</span> <span class="o">=</span> <span class="n">VocabAnalyzer</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
-  <span class="n">exs</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">get_line_vocabs</span><span class="p">(</span><span class="n">sens</span><span class="p">,</span> <span class="n">google</span><span class="p">)</span>
+  <span class="n">exs</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">get_line_vocabs</span><span class="p">(</span><span class="n">sens</span><span class="p">,</span> <span class="n">external</span><span class="p">)</span>
   <span class="n">shown</span> <span class="o">=</span> <span class="n">exs</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
 
   <span class="n">phase</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Finish vocabs dictionary lookup&quot;</span><span class="p">,</span> <span class="s2">&quot;vocabs&quot;</span><span class="p">:</span> <span class="n">shown</span><span class="p">}</span>
@@ -372,15 +309,15 @@ $ python -m spacy download es_dep_news_trf
     <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">phase</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">Write assfile with phrase information</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">subtitlecore</span> <span class="kn">import</span> <span class="n">Subtitle</span>
 <span class="kn">from</span> <span class="nn">subtitle_analyzer</span> <span class="kn">import</span> <span class="n">PhraseAnalyzer</span>
 <span class="kn">from</span> <span class="nn">subtitle_analyzer</span> <span class="kn">import</span> <span class="n">PhraseASSWriter</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="k">def</span> <span class="nf">subtitle_phrase</span><span class="p">(</span><span class="n">srtfile</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">assfile</span><span class="p">,</span> <span class="n">google</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">subtitle_phrase</span><span class="p">(</span><span class="n">srtfile</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">assfile</span><span class="p">,</span> <span class="n">external</span><span class="p">):</span>
 
   <span class="n">phase</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Start sentenizing&quot;</span><span class="p">}</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">phase</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -394,7 +331,7 @@ $ python -m spacy download es_dep_news_trf
   <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">phase</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
   <span class="n">analyzer</span> <span class="o">=</span> <span class="n">PhraseAnalyzer</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
-  <span class="n">exs</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">get_line_phrases</span><span class="p">(</span><span class="n">sens</span><span class="p">,</span> <span class="n">google</span><span class="p">)</span>
+  <span class="n">exs</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">get_line_phrases</span><span class="p">(</span><span class="n">sens</span><span class="p">,</span> <span class="n">external</span><span class="p">)</span>
 
   <span class="n">phase</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Finish phrases dictionary lookup&quot;</span><span class="p">,</span> <span class="s2">&quot;vocabs&quot;</span><span class="p">:</span> <span class="n">exs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]}</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">phase</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -407,55 +344,38 @@ $ python -m spacy download es_dep_news_trf
     <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">phase</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</aside>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modules.html" class="btn btn-neutral float-left" title="subtitle_analyzer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Phoenix Grey.
-
-    </p>
+    <p>&#169; Copyright 2023, Phoenix Grey.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
