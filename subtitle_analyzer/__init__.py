@@ -97,7 +97,7 @@ This module demostrates the usage of package `subtitle_analyzer`.
 
 """
 
-__version__ = '0.1.22'
+__version__ = '0.1.23'
 
 from .vocab_analyzer import VocabAnalyzer
 from .vocab_ass_writer import VocabASSWriter

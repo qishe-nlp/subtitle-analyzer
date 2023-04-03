@@ -19,7 +19,7 @@ class PhraseASSWriter:
   _local_dir = os.path.dirname(__file__)
   _srtfile = os.path.join(_local_dir, 'empty.srt')
 
-  def __init__(self, cn_srtfile=None):
+  def __init__(self, using_marked_subs=True, cn_srtfile=None):
     """Initialize subtitle object from empty srtfile
 
     Args:
@@ -29,6 +29,7 @@ class PhraseASSWriter:
     self._subs = pysubs2.load(self.__class__._srtfile)
     self._subs.info['PlayResX'] = 640
     self._subs.info['PlayResY'] = 360
+    self.using_marked_subs = using_marked_subs
     self._cn_subs = None
     if cn_srtfile:
       self._cn_subs = pysubs2.load(cn_srtfile)
@@ -120,9 +121,11 @@ class PhraseASSWriter:
         verb_event = pysubs2.SSAEvent(start=start, end=end, text=_verbs, style="Verb")
 
 
-      _markers = " ".join([marker_colors[w[1]]+_underline(w) for w in bullet["markers"]])
-      event = pysubs2.SSAEvent(start=start, end=end, text=_markers, style="Default")
-      self._subs.append(event)
+      if self.using_marked_subs:
+        _markers = " ".join([marker_colors[w[1]]+_underline(w) for w in bullet["markers"]])
+        event = pysubs2.SSAEvent(start=start, end=end, text=_markers, style="Default")
+        self._subs.append(event)
+
       self._subs.append(phrase_event)
       self._subs.append(verb_event)
     

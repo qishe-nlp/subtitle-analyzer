@@ -77,16 +77,17 @@ def merge_content(npfile, vpfile):
 @click.command()
 @click.option("--npfile", help="Specify the reviewed noun phrase filename", prompt="noun phrase source")
 @click.option("--vpfile", help="Specify the reviewed verb phrase filename", prompt="verb phrase source")
+@click.option("--using_marked_subs", help="Whether using the marked subtitles", prompt="using marked subtitles", type=bool, default=True)
 @click.option("--cnsrtfile", required=False, help="Specify the Chinese subtitle filename", default=None)
 @click.option("--assfile", required=False, help="Specify the output ass filename", default=None)
-def gen_ass(npfile, vpfile, cnsrtfile, assfile):
+def gen_ass(npfile, vpfile, using_marked_subs, cnsrtfile, assfile):
   content = merge_content(npfile, vpfile)
   exs = []
   for e in content:
     e["markers"] = make_markers(e)
     exs.append(e)
   if assfile:
-    ass_writer = PhraseASSWriter(cnsrtfile)
+    ass_writer = PhraseASSWriter(using_marked_subs, cnsrtfile)
     ass_writer.write(exs, assfile, {"animation": False}) 
 
 
